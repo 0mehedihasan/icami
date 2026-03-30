@@ -7,6 +7,8 @@ export const site = {
   shortTitle: "ICAMI 2026",
   fullTitle: "International Conference on Applied Machine Intelligence",
   location: "Multimedia University (MMU), Malaysia",
+  eventStartDate: "2026-12-01",
+  eventEndDate: "2026-12-31",
   tagline: "Advancing Intelligent Systems for Real-World Impact",
   contactEmail: "contact@icami.net",
   social: {

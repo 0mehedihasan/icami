@@ -1,4 +1,5 @@
 const BASE_URL = "https://icami.net";
+const LAST_MODIFIED = "2026-03-30";
 
 const routes = [
   "/",
@@ -24,10 +25,9 @@ const routes = [
 ];
 
 export default function sitemap() {
-  const lastModified = new Date();
   return routes.map((route) => ({
     url: `${BASE_URL}${route}`,
-    lastModified,
+    lastModified: LAST_MODIFIED,
     changeFrequency: route === "/" ? "weekly" : "monthly",
     priority: route === "/" ? 1 : 0.7,
   }));

@@ -5,39 +5,40 @@ import { site } from "@/config/site";
 /** Negative margin only — padding lives on `<HeroSection>` so gradients/ambience paint under the transparent nav. */
 const heroPullUnderNav = "-mt-[calc(4rem+env(safe-area-inset-top,0px))]";
 
-export default function HomePage() {
-  const jsonLdOrganization = {
-    "@context": "https://schema.org",
+const jsonLdOrganization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.shortTitle,
+  url: "https://icami.net",
+  email: site.contactEmail,
+};
+
+const jsonLdEvent = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: `${site.shortTitle} — ${site.fullTitle}`,
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  startDate: site.eventStartDate,
+  endDate: site.eventEndDate,
+  location: {
+    "@type": "Place",
+    name: site.location,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "MY",
+    },
+  },
+  organizer: {
     "@type": "Organization",
     name: site.shortTitle,
     url: "https://icami.net",
-    email: site.contactEmail,
-  };
+  },
+  url: "https://icami.net",
+  description: site.tagline,
+};
 
-  const jsonLdEvent = {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    name: `${site.shortTitle} — ${site.fullTitle}`,
-    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    eventStatus: "https://schema.org/EventScheduled",
-    startDate: "2026-12-01",
-    endDate: "2026-12-31",
-    location: {
-      "@type": "Place",
-      name: site.location,
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "MY",
-      },
-    },
-    organizer: {
-      "@type": "Organization",
-      name: site.shortTitle,
-      url: "https://icami.net",
-    },
-    url: "https://icami.net",
-    description: site.tagline,
-  };
+export default function HomePage() {
 
   return (
     <>
