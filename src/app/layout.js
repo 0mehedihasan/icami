@@ -28,11 +28,55 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://icami.net"),
   title: {
     default: `${site.shortTitle} — ${site.fullTitle}`,
     template: `%s — ${site.shortTitle}`,
   },
   description: `${site.fullTitle}. ${site.location}. ${site.tagline}`,
+  keywords: [
+    "ICAMI",
+    "ICAMI 2026",
+    "icami.net",
+    "International Conference on Applied Machine Intelligence",
+    "Applied Machine Intelligence conference",
+    "Malaysia AI conference",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://icami.net",
+    title: `${site.shortTitle} — ${site.fullTitle}`,
+    description: `${site.fullTitle}. ${site.location}. ${site.tagline}`,
+    siteName: site.shortTitle,
+    images: [
+      {
+        url: "/icami.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.shortTitle} logo`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.shortTitle} — ${site.fullTitle}`,
+    description: `${site.fullTitle}. ${site.location}. ${site.tagline}`,
+    images: ["/icami.png"],
+  },
   icons: {
     icon: "/icami.png",
   },
